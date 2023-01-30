@@ -1,0 +1,37 @@
+JS
+BOM이란?
+Browser Object Model
+웹 브라우저를 객체화 한 것을 말한다.
+
+객체화의 이유 : 브라우저를 JS로 제어하기 위해서.
+ex) 마우스를 이용해서 브라우저의 새 탭을 열거나 키보드로 다른 주소를 입력함으로써 웹문서의 이동이 가능하다.
+
+브라우저 객체의 종류
+window : 브라우저 창 자체를 의미한다.
+		모든 객체가 소속된 객체이다.
+		window는 생략이 가능하다.
+ex) 새 탭 열기 - window.open(URL), 탭 닫기 - window.close()
+
+
+document : 현재 문서에 대한 정보를 가지고 있는 객체
+		window 객체에 소속된 객체
+
+
+history : 현재 브라우저가 접근했던 URL 히스토리를 제어할 수 있다.
+
+ex) history.back()
+
+
+location : 문서의 주소와 관련된 객체로, window 객체의 프로퍼티인 동시에 document의 프로퍼티이다.
+		문서의 URL 변경 가능
+		현재 웹 문서의 정보를 얻을 수 있다.
+
+ex) location.host, location.href
+
+
+screen : 사용자의 디스플레이 화면에 관한 정보를 갖고있는 객체이다.
+
+ex) console.log, console.dir(screen)
+
+
+navigator : 실행중인 애플리케이션(브라우저)의 정보를 알 수 있다.

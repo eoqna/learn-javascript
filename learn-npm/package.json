@@ -1,0 +1,20 @@
+{
+  "name": "learn-npm",
+  "version": "1.0.0",
+  "description": "npm 실습 프로젝트",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test-nodemon": "nodemon.cmd index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

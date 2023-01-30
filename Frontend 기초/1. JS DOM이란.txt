@@ -1,0 +1,35 @@
+Javascript
+웹 문서(HTML)를 제어하기 위해 개발된 언어
+
+
+랜더링엔진
+문서를 객체화(DOM) 해준다.
+
+
+DOM이란?
+문서 객체 모델 (Document Object Model)
+브라우저에서 Javascript로 HTML요소를 제어할 수 있도록 제공하는 API
+
+Tree 구조를 가진다. (DOM 트리) 각각의 요소들을 NODE라고 한다.
+
+
+BOM
+브라우저 객체 모델(Browser Object Model)
+브라우저를 제어할 수 있도록 모델링한 것
+
+
+CSSOM
+CSS Object Model
+css를 javascript로 제어할 수 있게 모델링한 것
+
+
+#document 객체
+web 페이지 자체를 의미하며
+DOM트리의 최상위 NODE이다.
+document.getRootNode() : 최상위 NODE를 반환해준다.
+
+document.childNodes : 최상위 NODE의 하위 노드(!DOC, html)를 반환해준다. 
+
+
+
+

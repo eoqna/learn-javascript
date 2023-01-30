@@ -1,0 +1,122 @@
+this : 객체를 가르키는 키워드
+
+* this는 객체다.
+
+대부분의 경우 this의 값은 함수를 호출한 방법에 의해서 결정된다.
+
+호출한 놈이 없을 경우 this는 window 객체이다.
+
+
+ES5 bind : this를 설정할 수 있는 메소드 ( bind는 한 번만 사용할 수 있다.)
+ex)
+
+function printThis() {
+	console.log(this) // default this => window
+}
+let person1 = {
+	name: '홍길동'
+}
+let printThis1 = printThis.bind(person1);
+printThis1();
+
+결과 : {name: '홍길동'}
+
+/////////////////////////////////////////////////
+
+function printThis() {
+	console.log(this) // default this => window
+}
+let person1 = {
+	name: '홍길동'
+}
+let person2 = {
+	name: '김길동'
+}
+let printThis1 = printThis.bind(person1);
+let printThis2 = printThis1.bind(person2);
+printThis2();
+
+결과 : {name: '홍길동'}
+
+/////////////////////////////////////////////////
+
+let person = {
+    name: '짐코딩',
+    age: 20,
+    hello: function() {
+        setTimeout(function() {
+            console.log(this);  // => window
+            console.log(this.name);
+            console.log(this.age);
+        }, 1000);
+    }
+}
+person.hello();
+
+결과 : undefined
+
+이유 : setTimeout 함수 안에서의 this가 window를 가리키기때문에 window.name과 window.age는 존재하지 않으므로 undefined가 출력된다.
+
+해결방법 this가 person객체를 가르킬 수 있도록 bind해준다.
+
+let person = {
+    name: '짐코딩',
+    age: 20,
+    hello: function() {
+	  console.log(this) // => person
+        setTimeout((function() {
+            console.log(this);  // => window
+            console.log(this.name);
+            console.log(this.age);
+        }).bind(this), 1000);
+    }
+}
+person.hello();
+
+결과 : 짐코딩 20
+
+이유 : this는 현재 person이기 때문에 this를 bind해주면 window가 아닌 person 객체를 가리키게 된다.
+
+//////////////////////////////////////////////////////////////////////////////
+
+화살표 함수(Arrow Function, ES6) : 자신을 포함하고 있는 외부 Scope에서 this를 계승받는다.
+
+let person = {
+  name: '짐코딩',
+  age: 20,
+  hello: function() {
+    setTimeout(() => {
+      console.log(this);  // => person
+      console.log(this.name);
+      console.log(this.age);
+    }, 1000);
+  },
+};
+person.hello();
+
+결과 : 짐코딩 20
+
+상위 Scope의 this를 계승받기 때문에 상위 Scope의 this는 person이다.
+
+
+!화살표 함수를 사용하면 안되는 경우
+
+1. 객체 메서드를 선언할 때 사용하면 안된다.
+
+2. addEventListener 함수의 콜백함수에서 사용하면 this는 window를 가리킨다.
+
+//////////////////////////////////////////////////////////////////////////////////
+
+엄격 모드(Strict Mode)에서는 호출한 놈이 없을 경우 this의 기본값을 window로 하지 않고 undefined로 한다.
+
+strick 모드 지정하기
+
+'use strick';
+
+function printThis() {
+	console.log(this);
+}
+
+printThis();
+
+결과 : undefined

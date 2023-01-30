@@ -1,0 +1,42 @@
+html 파일에서 js를 head부분에 import한 후 사용할 때, 위에서부터 아래로 읽으며 순차적으로 코드를 실행한다.
+
+head부분에 js를 import해서 사용할 경우, HTML이 parsing되다가 script를 만나게 되고 해당 script를 실행하고 난 뒤 다시 HTML이 parsing된다.
+
+그래서 HTML 요소를 찾지 못해서 js코드를 실행하지 못하고 에러가 나게된다.
+
+해결 방법은 여러가지가 있다
+
+1. script 태그를 head부분이 아닌 body 최하단에 선언해서 body를 다 그린 후 script가 실행되게 한다.
+
+<body>
+<script></script>
+</body>
+
+
+2. window.onload 명령어를 사용해 파일이 로드되고 난 후에 js를 실행시켜준다.
+
+window.onload = function() {
+	실행코드
+}
+
+3. DOMContentLoaded 이벤트 리스너 명령어를 사용해 파일이 로드되고 난 후에 js를 실행시켜준다.
+
+document.addEventListener('DOMContentLoad', function () {
+	실행코드
+})
+
+
+* window.onload보다 DOMContentLoaded가 먼저 실행된다.
+
+4. script 태그에 'defer'속성을 부여해 비동기로 JavaScript 파일을 불러온다.
+
+defer 속성 - HTML 파싱과 함께, 비동기로 Js파일을 불러온다.
+		HTML 파싱이 완료된 후, JavaScript코드를 실행한다.
+
+<script src="js" defer></script>
+
+
+async 속성 - HTML 파싱과 함께, 비동기로 Js파일을 불러온다.
+		HTML 파싱이 완료되지 않았더라도, 먼저 로딩되는 JavaScript 파일부터 실행이 시작된다.
+		JS 파일을 실행할 때는 HTML 파싱이 중단된다.
+

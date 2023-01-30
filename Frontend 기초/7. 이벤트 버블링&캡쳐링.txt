@@ -1,0 +1,34 @@
+이벤트 버블링
+타겟 요소부터 최상위 요소까지 이벤트가 전파되는 것
+
+
+
+이벤트 캡쳐링
+최상위 요소부터 타겟 요소까지 이벤트가 전파되는 것
+
+
+addEventListener에서 캡쳐링과 버블링 구분하여 사용하는 방법
+
+3번째 인자로 true를 넣어주면 캡쳐링이 적용되고 3번째 인자를 넣지 않거나 false로 둘 경우 버블링이 적용된다.
+
+ex)
+
+$target.addEventListener('click', function(){}, true) => 캡쳐링
+
+$target.addEventListener('click', function(){}(, false)) => 버블링
+
+
+event.eventPhase : 현재 이벤트의 흐름의 단계를 나타낸다.
+
+[1] : 부모 객체를 통해 값이 타겟으로 전달될 때
+
+[2] : 이벤트가 이벤트 타겟에 도착한 때
+
+[3] : 타겟에서 역으로 이벤트가 부모로 올라갈 때(버블링)
+
+
+
+event.stopPropagation : event의 전파를 막는 메소드
+
+event.preventDefault : 해당 이벤트에 대한 기본 동작을 실행하지 않도록 지정하는 메소드 
+

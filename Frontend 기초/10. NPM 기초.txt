@@ -1,0 +1,60 @@
+NPM ( Node Package Manager)
+
+JS로 개발할 때 모듈을 쉽게 다운받을 수 있게 해주는 도구
+
+
+Node.js란 ? JavaScript 런타임 환경이다.
+
+
+package.json
+
+npm으로 프로젝트를 관리할 때 반드시 필요한 필수 파일이다.
+
+프로젝트에서 대한 정보를 가지고 있는 파일이다.
+
+dependencies와 같은 속성을 활용하여 프로젝트에 의존된 라이브러리를 관리한다.
+
+직접생성할 수도 있고, npm init 명령어를 통해서 자동으로 생성가능하다.
+
+
+npm init 속성
+
+name : 프로젝트명
+
+version : 프로젝트 버전, 주로 3단계 버전을 사용한다
+
+description : 프로젝트 설명을 기술한다.
+
+keywords : 프로젝트를 검색할 때 참조되는 키워드
+
+private : true로 설정되면 npm 게시를 거부한다.
+
+main : 패키지의 기본 진입점이다.
+
+scripts : 프로젝트에서 자주 사용하는 명령어를 scripts로 작성해두면 npm 명령어로 실행이 가능하다.
+
+author : 프로젝트 제작자의 이름을 지정
+
+license : 패키지에 대한 라이선스를 지정하여 사람들이 패키지를 사용할 수 있는 방법과 패키지에 대한 제한 사항을 알 수 있도록 지정한다.
+
+dependencies : 프로젝트에서 사용하는 모듈을 기술하는 부분, 프로젝트가 어떤 모듈을 사용하는지 볼 수있다.
+
+devDependencies : 개발할 때만 의존하는 모듈을 관리한다.
+
+
+
+node_modules
+프로그램에서 필요로하는 라이브러리가 설치된 경로이다.
+
+
+package-lock.json
+프로젝트에 설치된 모듈들의 의존성 트리를 기록하고 있으며, package-lock.json 파일을 참고하여 node_modules 디렉토리 안에 모듈을 다운받는다.
+
+
+전역설치 vs 지역설치
+
+전역설치 : cli를 제공하는 모듈같은 경우 전역설치를 한다. (ex. nodemon, vue-cli)
+
+ 
+
+
